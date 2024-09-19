@@ -9,7 +9,7 @@ data "archive_file" "zip" {
   output_path = local.lambda_zip_path
 }
 
-resource "aws_lambda_function" "viewcounter_lambda" {
+resource "aws_lambda_function" "users_lambda" {
   filename         = data.archive_file.zip.output_path
   function_name    = "govtech-assessment2-api"
   role             = aws_iam_role.iam_for_lambda_assessment2.arn
